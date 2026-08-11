@@ -175,7 +175,7 @@ function renderView(name) {
     .replaceAll('BRAND_CONFLUENCE', brandIcon('confluence'));
   decorateAvatars();
 }
-renderView('channels');
+renderView('journey');
 document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => {
   document.querySelectorAll('.product-tab').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); item.tabIndex = -1; });
   tab.classList.add('active'); tab.setAttribute('aria-selected', 'true'); tab.tabIndex = 0; renderView(tab.dataset.view);
