@@ -43,7 +43,7 @@ if (voiceStory) {
 }
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
 const reviewPreview = document.querySelector('.story-grid > .story-card:last-child .story-ui-review');
-if (reviewPreview) reviewPreview.insertAdjacentHTML('beforeend', '<div class="review-screen-details"><div class="review-detail-heading"><span>PROPOSED CHANGE</span><b><span class="review-task-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 19c.8-3.2 3-5 6.5-5s5.7 1.8 6.5 5"/></svg></span>Beneficiary details</b><i>Needs review</i></div><div class="review-detail-grid"><span>Before</span><span>After</span><b>Alex Morgan</b><b>Alex J. Morgan</b></div><div class="review-policy"><span>✓</span><div><b>Policy check passed</b><small>One approval required before saving</small></div></div><div class="review-footer"><span>Prepared by Assistant assist · 2m ago</span><button type="button">Open review</button></div></div>');
+if (reviewPreview) reviewPreview.innerHTML = '<img class="review-screen-image" src="assets/team-review-screen.png" alt="Aegis review queue showing four governed actions and queue health" />';
 if (reviewPreview) reviewPreview.insertAdjacentHTML('afterend', '<div class="review-laptop-deck" aria-hidden="true"><span class="review-trackpad"></span></div>');
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
