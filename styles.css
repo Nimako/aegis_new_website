@@ -206,7 +206,7 @@ html[data-theme="light"] .task-avatar-controls{background:#f0e5fb;color:#70429b!
 .story-grid > .story-card:last-child .story-ui-review{overflow:hidden;background:#f7fbf7}
 .story-grid > .story-card:last-child .story-ui-review:before{z-index:3;pointer-events:none}
 .story-grid > .story-card:last-child .story-ui-review:after{display:none}
-.review-screen-image{position:absolute;z-index:1;inset:0;display:block;width:100%;height:100%;border-radius:inherit;object-fit:cover;object-position:center center}
+.story-image .review-screen-image{position:absolute;z-index:1;inset:0;display:block;width:100%;height:100%;border-radius:inherit;object-fit:contain;object-position:center center;background:#f7fbf7}
 
 /* Journey view: high-contrast wayfinding and a real customer portrait. */
 .journey-step>span.journey-step-icon{display:grid;place-items:center;width:31px;height:31px;border:1px solid #a8d8b5;border-radius:50%;background:#e2f6e6;color:#155f3b;font-size:0}
