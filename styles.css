@@ -353,5 +353,4 @@ html[data-theme="light"] .deployment-strip{background:radial-gradient(ellipse 70
 @media(max-width:900px){.deployment-strip{grid-template-columns:1fr;gap:34px}.deployment-copy p{max-width:510px}}
 @media(max-width:600px){.deployment-strip{padding:70px 20px 76px}.deployment-channels{grid-template-columns:1fr 1fr}.deployment-channels a{min-height:105px}.deployment-channels a:last-child{grid-column:1/-1}}
 /* Hero inbox source marks keep voice, web chat, and WhatsApp visible at a glance. */
-.hero-source-strip{display:flex;align-items:center;gap:7px;margin-left:auto;padding:6px 0 6px 8px;color:var(--muted);font-size:8px}.hero-source-chip{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}.hero-source-chip .icon{width:12px;height:12px;color:var(--mint)}.hero .conversation small{display:inline-flex;align-items:center;gap:4px}.hero .conversation small .icon{width:10px;height:10px;color:var(--mint-dark);flex:none}
-@media(max-width:900px){.hero-source-strip{display:none}}
+.hero .conversation small{display:inline-flex;align-items:center;gap:4px}.hero .conversation small .icon{width:10px;height:10px;color:var(--mint-dark);flex:none}

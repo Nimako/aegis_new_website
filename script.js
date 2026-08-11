@@ -139,10 +139,6 @@ const brandIcon = name => `<svg class="brand-local"><use href="#i-${name}"/></sv
 
 // Make the hero inbox immediately legible: every visible conversation has a
 // real channel mark, and the tab row previews the sources in one glance.
-const heroInboxTabs = document.querySelector('.hero .inbox-tabs');
-if (heroInboxTabs) {
-  heroInboxTabs.insertAdjacentHTML('beforeend', '<span class="hero-source-strip" aria-label="Conversation sources"><span class="hero-source-chip"><svg class="icon"><use href="#i-phone"/></svg> Voice</span><span class="hero-source-chip"><svg class="icon"><use href="#i-website"/></svg> Web chat</span><span class="hero-source-chip"><svg class="icon"><use href="#i-whatsapp"/></svg> WhatsApp</span></span>');
-}
 document.querySelectorAll('.hero .conversation small').forEach(source => {
   const sourceText = source.textContent.trim();
   const icon = sourceText.startsWith('Voice') ? 'phone' : sourceText.startsWith('Web chat') ? 'website' : 'whatsapp';
