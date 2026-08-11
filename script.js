@@ -25,6 +25,7 @@ const androidControlIcons = [
   '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v7a3 3 0 0 0 6 0V5h2v7a5 5 0 0 1-10 0V5Z"/><path d="m5 5 14 14"/></svg>'
 ];
 document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
+document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
