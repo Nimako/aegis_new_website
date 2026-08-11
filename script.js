@@ -144,6 +144,7 @@ document.querySelectorAll('.hero .conversation small').forEach(source => {
   const icon = sourceText.startsWith('Voice') ? 'phone' : sourceText.startsWith('Web chat') ? 'chat' : 'whatsapp';
   source.innerHTML = `${svgIcon(icon)}<span>${sourceText}</span>`;
 });
+document.querySelector('.hero .workspace-name')?.remove();
 function decorateAvatars(root = productView) {
   root?.querySelectorAll('.conversation .avatar').forEach((avatar, index) => {
     avatar.classList.add('avatar-photo', ['avatar-maya', 'avatar-jon', 'avatar-emma'][index] || 'avatar-maya');
