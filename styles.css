@@ -277,3 +277,16 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 
 /* Give each timeline label breathing room from its icon. */
 .journey-step>b,.journey-step>small{padding-left:5px}
+
+/* Editorial zoom for the single action the team needs to see first. */
+.story-ui-review>div.review-row-focus{top:19%!important;height:48%!important;grid-template-columns:22px minmax(0,1fr) auto auto;gap:8px;padding:8px 9px;border-radius:8px;background:#fbfffc;box-shadow:0 0 0 3px rgba(185,239,201,.34)}
+.story-ui-review>div.review-row-focus:before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:3px;border-radius:3px;background:#1b8a56}
+.review-row-focus .review-focus-index{width:21px;height:21px;border-radius:6px;background:#17613f;color:#f1fff4;font-size:7px}
+.review-row-focus .review-focus-copy{gap:3px}
+.review-row-focus .review-focus-copy small{font-size:6px!important;letter-spacing:.1em}
+.review-row-focus .review-focus-copy b{font-size:10px;letter-spacing:-.02em}
+.review-row-focus .review-focus-copy em{font-size:6px}
+.review-row-focus .review-focus-status{padding:5px 7px;color:#72500b;background:#fff4d8;border-color:#e6cb8b;font-size:6px}
+.review-row-focus .review-focus-status:before{content:"✓";margin-right:4px;color:#17613f;font:700 8px var(--sans)}
+.review-row-focus strong{min-width:49px;padding:8px 9px;border-radius:6px;background:#17613f;color:#fff;font-size:9px}
+@media(max-width:680px){.story-ui-review>div.review-row-focus{top:20%!important;height:49%!important;grid-template-columns:17px minmax(0,1fr) auto;gap:5px;padding:6px}.story-ui-review>div.review-row-focus:before{top:8px;bottom:8px}.review-row-focus .review-focus-index{width:16px;height:16px;font-size:6px}.review-row-focus .review-focus-copy small{font-size:5px!important}.review-row-focus .review-focus-copy b{font-size:7px}.review-row-focus .review-focus-copy em{font-size:4px}.review-row-focus .review-focus-status{display:none}.review-row-focus strong{min-width:37px;padding:6px 6px;font-size:7px}}
