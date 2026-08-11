@@ -141,7 +141,7 @@ const brandIcon = name => `<svg class="brand-local"><use href="#i-${name}"/></sv
 // real channel mark, and the tab row previews the sources in one glance.
 document.querySelectorAll('.hero .conversation small').forEach(source => {
   const sourceText = source.textContent.trim();
-  const icon = sourceText.startsWith('Voice') ? 'phone' : sourceText.startsWith('Web chat') ? 'website' : 'whatsapp';
+  const icon = sourceText.startsWith('Voice') ? 'phone' : sourceText.startsWith('Web chat') ? 'chat' : 'whatsapp';
   source.innerHTML = `${svgIcon(icon)}<span>${sourceText}</span>`;
 });
 function decorateAvatars(root = productView) {
