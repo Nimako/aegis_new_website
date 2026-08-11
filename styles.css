@@ -353,7 +353,7 @@ html[data-theme="light"] .deployment-strip{background:radial-gradient(ellipse 70
 @media(max-width:900px){.deployment-strip{grid-template-columns:1fr;gap:34px}.deployment-copy p{max-width:510px}}
 @media(max-width:600px){.deployment-strip{padding:70px 20px 76px}.deployment-channels{grid-template-columns:1fr 1fr}.deployment-channels a{min-height:105px}.deployment-channels a:last-child{grid-column:1/-1}}
 /* File-search context for the tools proof strip. */
-.logos-caption{max-width:260px;margin:0;color:var(--soft);font-size:11px;line-height:1.4}
+.logos-caption{max-width:260px;margin:0;color:var(--soft);font-size:11px;line-height:1.4;letter-spacing:.075em}
 .logos{gap:22px}
 @media(max-width:900px){.logos{flex-wrap:wrap}.logos-caption{max-width:330px}.logos>div{width:100%;margin-left:0}}
 /* Hero inbox source marks keep voice, web chat, and WhatsApp visible at a glance. */
@@ -367,6 +367,13 @@ html[data-theme="light"] .deployment-strip{background:radial-gradient(ellipse 70
 .review-focus-avatar{display:block!important;width:26px;height:26px;border-radius:50%;flex:none;background-image:url('assets/avatar-maya.png')!important;background-size:cover!important;background-position:center!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55),0 2px 6px rgba(17,67,42,.16)}
 .review-focus-avatar.avatar-jon{background-image:url('assets/avatar-jon.png')!important}
 @media(max-width:680px){.story-ui-review>div.review-row-focus{grid-template-columns:21px minmax(0,1fr) auto!important}.review-focus-avatar{width:21px;height:21px}}
+
+/* Use the same calm, product-led atmosphere as the chat card instead of a competing office photo. */
+.story-grid > .story-card:last-child .story-image{background:radial-gradient(circle at 78% 20%,rgba(255,255,255,.9) 0 8%,transparent 8.5%),repeating-radial-gradient(circle at 78% 20%,transparent 0 72px,rgba(26,117,72,.1) 73px 74px),linear-gradient(135deg,#edf8ef 0%,#d8efdc 48%,#afd4b9 100%)!important}
+.story-grid > .story-card:last-child .story-image>img{display:none!important}
+.story-grid > .story-card:last-child .story-image:after{background:linear-gradient(180deg,rgba(255,255,255,0) 54%,rgba(12,67,37,.08) 100%)!important}
+.story-grid > .story-card:last-child .story-image:before{border-color:rgba(255,255,255,.72)!important;background:linear-gradient(180deg,#d7e9da,#a5c3aa)!important;box-shadow:0 7px 8px rgba(20,82,45,.12)!important}
+html[data-theme="dark"] .story-grid > .story-card:last-child .story-image{background:radial-gradient(circle at 78% 20%,rgba(225,255,232,.18) 0 8%,transparent 8.5%),repeating-radial-gradient(circle at 78% 20%,transparent 0 72px,rgba(167,243,208,.1) 73px 74px),linear-gradient(135deg,#193b2b 0%,#174d34 48%,#286847 100%)!important}
 
 /* A small, outcome-led status overlay gives the team-review scene the same product proof as the chat scene. */
 .review-proof{position:absolute;z-index:5;right:12px;bottom:14px;display:flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid #b77b13;border-radius:10px;background:#fff0b8;box-shadow:0 10px 22px rgba(53,42,10,.22);color:#3f2b05;backdrop-filter:blur(10px)}

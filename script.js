@@ -31,15 +31,15 @@ document.querySelectorAll('.android-call-status span:last-child').forEach(status
 const voiceStory = document.querySelector('.story-grid > .story-card:first-child');
 if (voiceStory) {
   voiceStory.querySelector('.android-call')?.setAttribute('aria-label', 'Outbound Android phone call from the assistant to a BrightCare customer');
-  voiceStory.querySelector('.android-call-profile small').textContent = 'OUTBOUND CALL';
-  voiceStory.querySelector('.android-call-profile b').textContent = 'Maya Chen';
-  voiceStory.querySelector('.android-call-profile > span:last-child').textContent = 'BrightCare customer';
-  voiceStory.querySelector('.story-ui-booking b').textContent = 'Maya · Follow-up';
-  voiceStory.querySelector('.story-ui-booking > span').textContent = 'Confirming details';
-  voiceStory.querySelector('.story-ui-booking strong').innerHTML = '<svg class="icon"><use href="#i-check"/></svg> Answered';
+  voiceStory.querySelector('.android-call-profile small').textContent = 'FOLLOW-UP CALL';
+  voiceStory.querySelector('.android-call-profile b').textContent = 'BrightCare Clinic';
+  voiceStory.querySelector('.android-call-profile > span:last-child').textContent = '+1 (555) 014-2040';
+  voiceStory.querySelector('.story-ui-booking b').textContent = 'Called Maya back';
+  voiceStory.querySelector('.story-ui-booking > span').textContent = 'Friday · 2:00 PM available';
+  voiceStory.querySelector('.story-ui-booking strong').innerHTML = '<svg class="icon"><use href="#i-check"/></svg> Booked';
   voiceStory.querySelector('.story-kicker').textContent = 'For a clinic';
-  voiceStory.querySelector('.story-copy h3').textContent = '“Can you confirm Friday?”';
-  voiceStory.querySelector('.story-copy p').textContent = 'The voice assistant follows up with customers, confirms the details, and keeps the clinic’s schedule current.';
+  voiceStory.querySelector('.story-copy h3').textContent = '“A Friday slot opened.”';
+  voiceStory.querySelector('.story-copy p').textContent = 'Maya asked earlier. When the clinic’s schedule changed, the assistant called back and kept the appointment moving.';
   voiceStory.querySelector('.story-copy > b').firstChild.textContent = 'See the follow-up flow ';
 }
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
