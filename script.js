@@ -276,7 +276,7 @@ if (autonomyDescription) {
 const plainCopy = {
   '.outcomes-heading .eyebrow': 'How it works',
   '.outcomes-heading h2': 'A question comes in.<br><em>A useful next step goes out.</em>',
-  '.outcomes-heading p': 'People ask in the channel they prefer. Aegis looks in the right places, uses your tools, and keeps the conversation moving.',
+  '.outcomes-heading p': 'Customers ask in the channel they prefer. Aegis looks in the right places, uses your tools, and keeps the conversation moving.',
   '.outcome-card:nth-child(1) h3': 'Find the answer',
   '.outcome-card:nth-child(1) p': 'Use your approved FAQs, plans, policies, and opening hours.',
   '.outcome-card:nth-child(1) .outcome-link': 'See what it can use ↗',
