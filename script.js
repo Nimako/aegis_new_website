@@ -18,6 +18,14 @@ const setTheme = theme => {
 setTheme(document.documentElement.dataset.theme || 'light');
 themeToggle?.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+// Keep the Android call controls crisp and recognizable at every card size.
+const androidControlIcons = [
+  '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2M11 6h2M16 6h2M6 11h2M11 11h2M16 11h2M6 16h2M11 16h2M16 16h2"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4H5Z"/><path d="M17 9.5a4 4 0 0 1 0 5M19.5 7a7.5 7.5 0 0 1 0 10"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v7a3 3 0 0 0 6 0V5h2v7a5 5 0 0 1-10 0V5Z"/><path d="m5 5 14 14"/></svg>'
+];
+document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
+
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
   revealTargets.forEach((element, index) => {
