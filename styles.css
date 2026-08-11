@@ -352,5 +352,9 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 html[data-theme="light"] .deployment-strip{background:radial-gradient(ellipse 70% 120% at 100% 50%,rgba(93,201,132,.12),transparent 64%)}html[data-theme="light"] .deployment-channels a{background:rgba(255,255,255,.76);border-color:rgba(20,53,37,.14);box-shadow:0 1px 2px rgba(22,62,40,.04)}html[data-theme="light"] .deployment-channels a:hover{background:#f4faf5;border-color:rgba(21,95,59,.28)}html[data-theme="light"] .deployment-icon{background:#d9f3df;color:#155f3b}html[data-theme="light"] .deployment-copy p{color:#52695b}
 @media(max-width:900px){.deployment-strip{grid-template-columns:1fr;gap:34px}.deployment-copy p{max-width:510px}}
 @media(max-width:600px){.deployment-strip{padding:70px 20px 76px}.deployment-channels{grid-template-columns:1fr 1fr}.deployment-channels a{min-height:105px}.deployment-channels a:last-child{grid-column:1/-1}}
+/* File-search context for the tools proof strip. */
+.logos-caption{max-width:260px;margin:0;color:var(--soft);font-size:11px;line-height:1.4}
+.logos{gap:22px}
+@media(max-width:900px){.logos{flex-wrap:wrap}.logos-caption{max-width:330px}.logos>div{width:100%;margin-left:0}}
 /* Hero inbox source marks keep voice, web chat, and WhatsApp visible at a glance. */
 .hero .conversation small{display:inline-flex;align-items:center;gap:4px}.hero .conversation small .icon{width:10px;height:10px;color:var(--mint-dark);flex:none}
