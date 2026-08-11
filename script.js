@@ -22,9 +22,10 @@ themeToggle?.addEventListener('click', () => setTheme(document.documentElement.d
 const androidControlIcons = [
   '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2M11 6h2M16 6h2M6 11h2M11 11h2M16 11h2M6 16h2M11 16h2M16 16h2"/></svg>',
   '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4H5Z"/><path d="M17 9.5a4 4 0 0 1 0 5M19.5 7a7.5 7.5 0 0 1 0 10"/></svg>',
-  '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v7a3 3 0 0 0 6 0V5h2v7a5 5 0 0 1-10 0V5Z"/><path d="m5 5 14 14"/></svg>'
+  '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5a3 3 0 0 1 6 0v6a3 3 0 0 1-6 0V5Z"/><path d="M6.5 10.5a5.5 5.5 0 0 0 9.1 4.2M12 19v-3M9 19h6M5 5l14 14"/></svg>'
 ];
 document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
+document.querySelectorAll('.android-call-controls>b').forEach(button => { button.innerHTML = '<svg class="icon hangup-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>'; });
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
 const reviewPreview = document.querySelector('.story-grid > .story-card:last-child .story-ui-review');
 if (reviewPreview) reviewPreview.insertAdjacentHTML('beforeend', '<div class="review-screen-details"><div class="review-detail-heading"><span>PROPOSED CHANGE</span><b>Beneficiary details</b><i>Needs review</i></div><div class="review-detail-grid"><span>Before</span><span>After</span><b>Alex Morgan</b><b>Alex J. Morgan</b></div><div class="review-policy"><span>✓</span><div><b>Policy check passed</b><small>One approval required before saving</small></div></div><div class="review-footer"><span>Prepared by Assistant assist · 2m ago</span><button type="button">Open review</button></div></div>');
