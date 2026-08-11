@@ -72,6 +72,14 @@ html[data-theme="light"] .mega-side{background:#f0f6f1;border-color:rgba(20,53,3
 html[data-theme="light"] .onboarding-steps span.current{background:#d9f3df;border-color:#29905a;color:#155f3b}html[data-theme="light"] .onboarding-screen-tabs{background:#e7f1e9;border:1px solid rgba(20,53,37,.14)}html[data-theme="light"] .onboarding-screen-tab{color:#5b7165}html[data-theme="light"] .onboarding-screen-tab.active{background:#d9f3df;color:#155f3b}html[data-theme="light"] .onboarding-item,html[data-theme="light"] .onboarding-tool-row{background:#f4faf5;border-color:rgba(20,53,37,.14)}html[data-theme="light"] .onboarding-item-icon{background:#d9f3df;color:#155f3b}html[data-theme="light"] .onboarding-item strong,html[data-theme="light"] .onboarding-tool-row strong{color:#155f3b}html[data-theme="light"] .onboarding-channel.active{background:#d9f3df;border-color:rgba(21,95,59,.3);color:#155f3b}html[data-theme="light"] .onboarding-channel b{color:#173c2b}
 html[data-theme="light"] .resource-menu-list .menu-item-icon{background:#d9f3df;border-color:rgba(21,95,59,.18);color:#155f3b}html[data-theme="light"] .resource-menu-list>a:hover .menu-item-icon{background:#c9ead2;color:#0f5736}html[data-theme="light"] .resource-menu-list b{color:#173c2b}html[data-theme="light"] .resource-menu-list em{color:#52695b}
 html[data-theme="light"] .resource-menu-list .menu-item-icon{background:#d9f3df!important;color:#155f3b!important;border-color:rgba(21,95,59,.22)!important}.resource-menu-list .menu-item-icon .icon{color:inherit!important}
+
+/* Keep industry-menu icons as crisp as the Product and Resources menu icons. */
+.industry-menu-grid .menu-item-icon{background:#10231b;border-color:#2c684b;color:#b6f4c6}
+.industry-menu-grid .menu-item-icon .icon{color:inherit;stroke-width:2.1}
+.industry-menu-grid strong{color:#527063}
+.industry-menu-grid>a:hover .menu-item-icon{background:#173c2a;border-color:#5ebd7d;color:#e1ffe8}
+.industry-menu-grid>a:hover strong{color:#167044}
+html[data-theme="light"] .industry-menu-grid .menu-item-icon{background:#10231b;border-color:#2c684b;color:#b6f4c6}
 .queue-item>.review-button{background:#17613f;color:#f5fff7;border-color:#17613f}.queue-item>.review-button:hover,.queue-item>.review-button:focus-visible{background:#104c31;color:#fff;border-color:#104c31}.queue-item>.review-button.is-open{background:#d9f3df;color:#155f3b;border-color:rgba(21,95,59,.24)}
 html[data-theme="light"] .queue-item>.review-button{background:#17613f;color:#fff;border-color:#17613f}html[data-theme="light"] .queue-item>.review-button:hover,html[data-theme="light"] .queue-item>.review-button:focus-visible{background:#104c31;color:#fff;border-color:#104c31}html[data-theme="light"] .queue-item>.review-button.is-open{background:#d9f3df;color:#155f3b;border-color:rgba(21,95,59,.24)}
 html[data-theme="light"] .queue-item>span:first-child{background:#d9f3df;color:#155f3b;border:1px solid rgba(21,95,59,.18)}
