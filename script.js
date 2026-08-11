@@ -19,7 +19,7 @@ setTheme(document.documentElement.dataset.theme || 'light');
 themeToggle?.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
-  const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
+  const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
   revealTargets.forEach((element, index) => {
     element.classList.add('reveal-on-scroll');
     element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 70}ms`);
@@ -33,6 +33,8 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   revealTargets.forEach(element => revealObserver.observe(element));
 }
+const realLifeSection = document.querySelector('.real-life');
+document.querySelector('.outcomes')?.after(realLifeSection);
 const menuButtons = document.querySelectorAll('[data-menu]');
 const popovers = document.querySelectorAll('.popover');
 const cursorGlow = document.querySelector('.cursor-glow');
