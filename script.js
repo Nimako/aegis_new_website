@@ -145,6 +145,10 @@ document.querySelectorAll('.hero .conversation small').forEach(source => {
   source.innerHTML = `${svgIcon(icon)}<span>${sourceText}</span>`;
 });
 document.querySelector('.hero .workspace-name')?.remove();
+const chatStatusIcons = document.querySelector('.story-card-ios .ios-status-icons');
+if (chatStatusIcons) {
+  chatStatusIcons.innerHTML = '<svg class="status-icon status-signal" viewBox="0 0 16 12" aria-label="Mobile signal"><path d="M1 11h2V8H1zm4 0h2V6H5zm4 0h2V3H9zm4 0h2V1h-2z"/></svg><svg class="status-icon status-wifi" viewBox="0 0 16 12" aria-label="Wi-Fi connected"><path d="M1.5 4.5a10 10 0 0 1 13 0M4 7a6.3 6.3 0 0 1 8 0M6.8 9.5a2.1 2.1 0 0 1 2.4 0"/><circle cx="8" cy="11" r=".8" fill="currentColor" stroke="none"/></svg><svg class="status-icon status-battery" viewBox="0 0 18 10" aria-label="Battery full"><rect x="1" y="1" width="14" height="8" rx="2"/><path d="M17 4v2"/><path d="M3 3h9v4H3z" fill="currentColor" stroke="none"/></svg>';
+}
 function decorateAvatars(root = productView) {
   root?.querySelectorAll('.conversation .avatar').forEach((avatar, index) => {
     avatar.classList.add('avatar-photo', ['avatar-maya', 'avatar-jon', 'avatar-emma'][index] || 'avatar-maya');

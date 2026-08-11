@@ -358,3 +358,4 @@ html[data-theme="light"] .deployment-strip{background:radial-gradient(ellipse 70
 @media(max-width:900px){.logos{flex-wrap:wrap}.logos-caption{max-width:330px}.logos>div{width:100%;margin-left:0}}
 /* Hero inbox source marks keep voice, web chat, and WhatsApp visible at a glance. */
 .hero .conversation small{display:inline-flex;align-items:center;gap:4px}.hero .conversation small .icon{width:10px;height:10px;color:var(--mint-dark);flex:none}
+.story-card-ios .ios-status-icons{display:flex;align-items:center;gap:4px;color:#183126}.story-card-ios .ios-status-icons .status-icon{display:block;width:12px;height:10px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}.story-card-ios .ios-status-icons .status-signal{fill:currentColor;stroke:none;width:12px}.story-card-ios .ios-status-icons .status-wifi{width:13px}.story-card-ios .ios-status-icons .status-battery{width:16px}
