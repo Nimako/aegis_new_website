@@ -48,7 +48,7 @@ if (reviewPreview) reviewPreview.innerHTML = '<div class="review-panel-head"><sm
 if (reviewPreview) reviewPreview.insertAdjacentHTML('afterend', '<div class="review-laptop-deck" aria-hidden="true"><span class="review-trackpad"></span></div>');
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
-  const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
+  const revealTargets = document.querySelectorAll('.logos,.logos>div,.deployment-copy,.deployment-channels a,.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
   revealTargets.forEach((element, index) => {
     element.classList.add('reveal-on-scroll');
     element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 70}ms`);
@@ -62,8 +62,6 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   revealTargets.forEach(element => revealObserver.observe(element));
 }
-const realLifeSection = document.querySelector('.real-life');
-document.querySelector('.outcomes')?.after(realLifeSection);
 const menuButtons = document.querySelectorAll('[data-menu]');
 const popovers = document.querySelectorAll('.popover');
 const cursorGlow = document.querySelector('.cursor-glow');
@@ -156,6 +154,9 @@ function decorateAvatars(root = productView) {
   if (journeyAvatar) { journeyAvatar.classList.add('avatar-photo', 'avatar-maya'); journeyAvatar.textContent = ''; journeyAvatar.setAttribute('aria-label', 'Maya'); }
 }
 function renderView(name) {
+  const shouldAnimateView = productView.childElementCount > 0 && !reduceMotion;
+  if (shouldAnimateView) productView.classList.add('is-switching');
+  const paintView = () => {
   productView.innerHTML = views[name]
     .replaceAll('◈ AEGIS', `${svgIcon('shield')} AEGIS`)
     .replaceAll('▣', svgIcon('inbox'))
@@ -174,6 +175,9 @@ function renderView(name) {
     .replaceAll('BRAND_NOTION', brandIcon('notion'))
     .replaceAll('BRAND_CONFLUENCE', brandIcon('confluence'));
   decorateAvatars();
+  productView.classList.remove('is-switching');
+  };
+  if (shouldAnimateView) window.setTimeout(paintView, 160); else paintView();
 }
 renderView('journey');
 document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => {
@@ -308,15 +312,17 @@ Object.entries(plainCopy).forEach(([selector, copy]) => {
   if (element) element.innerHTML = copy;
 });
 
-// Keep the page narrative in the visitor's order: understand the product,
-// see where it works, then explore the deeper product story and examples.
+// Keep the visitor's story in order: understand, trust, explore, then convert.
 const pageMain = document.querySelector('main');
 const heroSection = pageMain?.querySelector('.hero');
 const deploymentSection = pageMain?.querySelector('.deployment-strip');
+const trustSection = pageMain?.querySelector('.logos');
 const storySection = pageMain?.querySelector('.real-life');
+const governanceSection = pageMain?.querySelector('.intro');
 const ctaSection = pageMain?.querySelector('.cta');
 if (pageMain && heroSection && deploymentSection) pageMain.insertBefore(heroSection, deploymentSection);
-if (pageMain && storySection && ctaSection) pageMain.insertBefore(storySection, ctaSection);
+if (heroSection && trustSection) heroSection.after(trustSection);
+if (pageMain && storySection && governanceSection) pageMain.insertBefore(storySection, governanceSection);
 
 ['Conversations', 'Review', 'Journey', 'History', 'Channels', 'Rules', 'Knowledge'].forEach((label, index) => {
   const tab = document.querySelectorAll('.product-tab')[index];

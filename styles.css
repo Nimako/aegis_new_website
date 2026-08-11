@@ -325,8 +325,14 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 .outcome-icon,.menu-item-icon{transition:transform .35s cubic-bezier(.2,.8,.2,1),background .25s,color .25s}
 .outcome-card:hover .outcome-icon{transform:translateY(-3px) rotate(-4deg)}
 .live-dot{will-change:box-shadow}
+.motion-ready .logos>div .brand-logo,.motion-ready .deployment-channels a{opacity:0;transform:translateY(12px);animation:story-rise .7s cubic-bezier(.2,.8,.2,1) forwards}
+.motion-ready .logos>div .brand-logo:nth-child(1){animation-delay:.08s}.motion-ready .logos>div .brand-logo:nth-child(2){animation-delay:.14s}.motion-ready .logos>div .brand-logo:nth-child(3){animation-delay:.2s}.motion-ready .logos>div .brand-logo:nth-child(4){animation-delay:.26s}
+.motion-ready .deployment-channels a:nth-child(1){animation-delay:.08s}.motion-ready .deployment-channels a:nth-child(2){animation-delay:.14s}.motion-ready .deployment-channels a:nth-child(3){animation-delay:.2s}.motion-ready .deployment-channels a:nth-child(4){animation-delay:.26s}.motion-ready .deployment-channels a:nth-child(5){animation-delay:.32s}.motion-ready .deployment-channels a:nth-child(6){animation-delay:.38s}
+.motion-ready .governance-cards .gov-icon{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}.motion-ready .gov-card:hover .gov-icon{transform:translateY(-3px) rotate(-4deg);box-shadow:0 0 0 5px rgba(48,191,123,.1),0 10px 22px rgba(8,40,25,.14)}
+.motion-ready .product-view{transition:opacity .22s ease,transform .22s ease}.motion-ready .product-view.is-switching{opacity:0;transform:translateY(7px)}
 @keyframes hero-stagger{from{opacity:0;transform:translateY(18px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
-@media(prefers-reduced-motion:reduce){.motion-ready .hero-copy>*,.motion-ready .hero-product .product-window,.motion-ready .mode-card,.motion-ready .onboarding-preview{animation:none!important;transition:none!important;transform:none!important;opacity:1!important}.button:after,.story-image:before{display:none!important}.outcome-icon,.menu-item-icon{transition:none!important}}
+@keyframes story-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.motion-ready .hero-copy>*,.motion-ready .hero-product .product-window,.motion-ready .mode-card,.motion-ready .onboarding-preview,.motion-ready .logos>div .brand-logo,.motion-ready .deployment-channels a{animation:none!important;transition:none!important;transform:none!important;opacity:1!important}.button:after,.story-image:before{display:none!important}.outcome-icon,.menu-item-icon,.motion-ready .product-view{transition:none!important}}
 
 /* Editorial zoom for the single action the team needs to see first. */
 .story-ui-review>div.review-row-focus{top:19%!important;height:48%!important;grid-template-columns:22px minmax(0,1fr) auto auto;gap:8px;padding:8px 9px;border-radius:8px;background:#fbfffc;box-shadow:0 0 0 3px rgba(185,239,201,.34)}
