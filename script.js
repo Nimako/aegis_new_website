@@ -92,6 +92,20 @@ const views = {
 const productView = document.getElementById('product-view');
 const svgIcon = name => `<svg class="icon"><use href="#i-${name}"/></svg>`;
 const brandIcon = name => `<svg class="brand-local"><use href="#i-${name}"/></svg>`;
+function decorateAvatars(root = productView) {
+  root?.querySelectorAll('.conversation .avatar').forEach((avatar, index) => {
+    avatar.classList.add('avatar-photo', ['avatar-maya', 'avatar-jon', 'avatar-emma'][index] || 'avatar-maya');
+    avatar.textContent = '';
+    avatar.setAttribute('aria-label', ['Maya', 'Jon', 'Emma'][index] || 'Customer');
+  });
+  root?.querySelectorAll('.queue-item>span:first-child').forEach((avatar, index) => {
+    avatar.classList.add('person-avatar', ['avatar-maya', 'avatar-jon', 'avatar-emma', 'avatar-team'][index] || 'avatar-maya');
+    avatar.textContent = '';
+    avatar.setAttribute('aria-label', 'Team member');
+  });
+  const journeyAvatar = root?.querySelector('.journey-thread-top .avatar');
+  if (journeyAvatar) { journeyAvatar.classList.add('avatar-photo', 'avatar-maya'); journeyAvatar.textContent = ''; journeyAvatar.setAttribute('aria-label', 'Maya'); }
+}
 function renderView(name) {
   productView.innerHTML = views[name]
     .replaceAll('◈ AEGIS', `${svgIcon('shield')} AEGIS`)
@@ -110,6 +124,7 @@ function renderView(name) {
     .replaceAll('BRAND_SLACK', brandIcon('slack'))
     .replaceAll('BRAND_NOTION', brandIcon('notion'))
     .replaceAll('BRAND_CONFLUENCE', brandIcon('confluence'));
+  decorateAvatars();
 }
 renderView('approvals');
 document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => {
