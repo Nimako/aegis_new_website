@@ -2,6 +2,7 @@
 const header = document.querySelector('.header');
 const themeToggle = document.querySelector('.theme-toggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add(reduceMotion ? 'reduce-motion' : 'motion-ready');
 if (!reduceMotion) document.documentElement.classList.add('js-reveal');
 const storedTheme = window.localStorage.getItem('aegis-theme');
 if (storedTheme === 'dark' || storedTheme === 'light') document.documentElement.dataset.theme = storedTheme;
@@ -66,6 +67,23 @@ document.querySelector('.outcomes')?.after(realLifeSection);
 const menuButtons = document.querySelectorAll('[data-menu]');
 const popovers = document.querySelectorAll('.popover');
 const cursorGlow = document.querySelector('.cursor-glow');
+
+// Adds a restrained depth shift to key product surfaces without affecting layout.
+if (!reduceMotion) {
+  document.querySelectorAll('.hero-product .product-window,.mode-card,.onboarding-preview').forEach(surface => {
+    surface.addEventListener('pointermove', event => {
+      const rect = surface.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - .5;
+      const y = (event.clientY - rect.top) / rect.height - .5;
+      surface.style.setProperty('--tilt-x', `${(y * -2.2).toFixed(2)}deg`);
+      surface.style.setProperty('--tilt-y', `${(x * 2.8).toFixed(2)}deg`);
+    });
+    surface.addEventListener('pointerleave', () => {
+      surface.style.setProperty('--tilt-x', '0deg');
+      surface.style.setProperty('--tilt-y', '0deg');
+    });
+  });
+}
 
 if (cursorGlow && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   window.addEventListener('pointermove', event => {
