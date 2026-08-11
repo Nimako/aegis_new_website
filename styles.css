@@ -229,6 +229,7 @@ html[data-theme="dark"] .journey-step.done b,html[data-theme="dark"] .journey-st
 
 /* Maya’s Journey portrait is cropped from the same outbound call scene. */
 .journey-thread-top .avatar-photo{background-image:url('assets/context-clinic-customer-call.png')!important;background-size:300% auto!important;background-position:80% 18%!important}
+.hero .avatar-photo.avatar-maya{background-image:url('assets/context-clinic-customer-call.png')!important;background-size:300% auto!important;background-position:80% 18%!important}
 
 /* A legible action callout keeps the review step visible at card size. */
 .review-button-focus{position:absolute;z-index:4;top:39%;right:7%;display:flex;align-items:center;gap:6px;padding:5px 6px 5px 7px;border:1px solid #9bd8ac;border-radius:7px;background:#f7fff8;color:#155f3b;box-shadow:0 5px 12px rgba(21,95,59,.2),0 0 0 3px rgba(185,239,201,.38);font-size:7px;line-height:1}
