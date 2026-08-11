@@ -308,6 +308,16 @@ Object.entries(plainCopy).forEach(([selector, copy]) => {
   if (element) element.innerHTML = copy;
 });
 
+// Keep the page narrative in the visitor's order: understand the product,
+// see where it works, then explore the deeper product story and examples.
+const pageMain = document.querySelector('main');
+const heroSection = pageMain?.querySelector('.hero');
+const deploymentSection = pageMain?.querySelector('.deployment-strip');
+const storySection = pageMain?.querySelector('.real-life');
+const ctaSection = pageMain?.querySelector('.cta');
+if (pageMain && heroSection && deploymentSection) pageMain.insertBefore(heroSection, deploymentSection);
+if (pageMain && storySection && ctaSection) pageMain.insertBefore(storySection, ctaSection);
+
 ['Conversations', 'Review', 'Journey', 'History', 'Channels', 'Rules', 'Knowledge'].forEach((label, index) => {
   const tab = document.querySelectorAll('.product-tab')[index];
   if (tab) tab.textContent = label;
