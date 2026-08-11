@@ -26,6 +26,20 @@ const androidControlIcons = [
 ];
 document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
 document.querySelectorAll('.android-call-controls>b').forEach(button => { button.innerHTML = '<svg class="icon hangup-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>'; });
+const voiceStory = document.querySelector('.story-grid > .story-card:first-child');
+if (voiceStory) {
+  voiceStory.querySelector('.android-call')?.setAttribute('aria-label', 'Outbound Android phone call from the assistant to a BrightCare customer');
+  voiceStory.querySelector('.android-call-profile small').textContent = 'OUTBOUND CALL';
+  voiceStory.querySelector('.android-call-profile b').textContent = 'Maya Chen';
+  voiceStory.querySelector('.android-call-profile > span:last-child').textContent = 'BrightCare customer';
+  voiceStory.querySelector('.story-ui-booking b').textContent = 'Maya · Follow-up';
+  voiceStory.querySelector('.story-ui-booking > span').textContent = 'Confirming details';
+  voiceStory.querySelector('.story-ui-booking strong').innerHTML = '<svg class="icon"><use href="#i-check"/></svg> Answered';
+  voiceStory.querySelector('.story-kicker').textContent = 'For a clinic';
+  voiceStory.querySelector('.story-copy h3').textContent = '“Can you confirm Friday?”';
+  voiceStory.querySelector('.story-copy p').textContent = 'The voice assistant follows up with customers, confirms the details, and keeps the clinic’s schedule current.';
+  voiceStory.querySelector('.story-copy > b').firstChild.textContent = 'See the follow-up flow ';
+}
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
 const reviewPreview = document.querySelector('.story-grid > .story-card:last-child .story-ui-review');
 if (reviewPreview) reviewPreview.insertAdjacentHTML('beforeend', '<div class="review-screen-details"><div class="review-detail-heading"><span>PROPOSED CHANGE</span><b>Beneficiary details</b><i>Needs review</i></div><div class="review-detail-grid"><span>Before</span><span>After</span><b>Alex Morgan</b><b>Alex J. Morgan</b></div><div class="review-policy"><span>✓</span><div><b>Policy check passed</b><small>One approval required before saving</small></div></div><div class="review-footer"><span>Prepared by Assistant assist · 2m ago</span><button type="button">Open review</button></div></div>');
