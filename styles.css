@@ -292,6 +292,13 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 .story-grid > .story-card:first-child .ios-call .android-call-home{width:58px;height:4px;margin-bottom:6px}
 @media(max-width:680px){.story-grid > .story-card:first-child .ios-call{left:39%;width:min(47%,182px)}.story-grid > .story-card:first-child .ios-call-screen{min-height:350px}.story-grid > .story-card:first-child .ios-call .android-call-profile{padding-top:35px}}
 
+/* The team-review story now presents one perfectly aligned action, without a tiny laptop screenshot. */
+.story-grid > .story-card:last-child .story-ui-review{left:4%;right:4%;top:38%;bottom:auto;width:auto!important;height:30%;padding:0;border:0;border-radius:0;background:transparent;overflow:visible;box-shadow:none}
+.story-grid > .story-card:last-child .story-ui-review:before,.story-grid > .story-card:last-child .story-ui-review:after{display:none}
+.story-grid > .story-card:last-child .review-row-focus{left:0!important;right:0!important;top:0!important;height:100%!important}
+.review-laptop-deck{display:none!important}
+@media(max-width:680px){.story-grid > .story-card:last-child .story-ui-review{left:3%;right:3%;top:36%;height:34%}.story-grid > .story-card:last-child .review-row-focus{left:0!important;right:0!important;top:0!important;height:100%!important}}
+
 /* Editorial zoom for the single action the team needs to see first. */
 .story-ui-review>div.review-row-focus{top:19%!important;height:48%!important;grid-template-columns:22px minmax(0,1fr) auto auto;gap:8px;padding:8px 9px;border-radius:8px;background:#fbfffc;box-shadow:0 0 0 3px rgba(185,239,201,.34)}
 .story-ui-review>div.review-row-focus:before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:3px;border-radius:3px;background:#1b8a56}
