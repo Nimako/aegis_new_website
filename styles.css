@@ -278,6 +278,20 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 /* Give each timeline label breathing room from its icon. */
 .journey-step>b,.journey-step>small{padding-left:5px}
 
+/* iOS-style call device: taller proportions, Dynamic Island, and calmer controls. */
+.story-grid > .story-card:first-child .ios-call{left:42%;width:min(46%,174px);padding:5px;border-radius:31px;background:linear-gradient(145deg,#384b43,#08140f 78%);transform:translate(-50%,-50%) rotate(-2deg)}
+.story-grid > .story-card:first-child .ios-call-screen{min-height:340px;border-radius:27px;background:linear-gradient(180deg,#114d32 0%,#0b3222 62%,#071d15 100%)}
+.story-grid > .story-card:first-child .ios-call-screen:before{top:6px;width:68px;height:18px;border-radius:0 0 13px 13px;background:#06110c}
+.story-grid > .story-card:first-child .ios-call .android-call-status{padding:12px 13px 0;font-size:7px}
+.story-grid > .story-card:first-child .ios-call .android-call-profile{padding:33px 8px 13px;gap:5px}
+.story-grid > .story-card:first-child .ios-call .clinic-avatar{width:52px;height:52px;border-radius:17px}
+.story-grid > .story-card:first-child .ios-call .android-call-profile b{font-size:12px}
+.story-grid > .story-card:first-child .ios-call .android-call-controls{margin:34px 15px 14px;gap:8px}
+.story-grid > .story-card:first-child .ios-call .android-call-controls i{width:30px;height:30px}
+.story-grid > .story-card:first-child .ios-call .android-call-controls>b{width:44px;height:44px}
+.story-grid > .story-card:first-child .ios-call .android-call-home{width:58px;height:4px;margin-bottom:6px}
+@media(max-width:680px){.story-grid > .story-card:first-child .ios-call{left:39%;width:min(47%,182px)}.story-grid > .story-card:first-child .ios-call-screen{min-height:350px}.story-grid > .story-card:first-child .ios-call .android-call-profile{padding-top:35px}}
+
 /* Editorial zoom for the single action the team needs to see first. */
 .story-ui-review>div.review-row-focus{top:19%!important;height:48%!important;grid-template-columns:22px minmax(0,1fr) auto auto;gap:8px;padding:8px 9px;border-radius:8px;background:#fbfffc;box-shadow:0 0 0 3px rgba(185,239,201,.34)}
 .story-ui-review>div.review-row-focus:before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:3px;border-radius:3px;background:#1b8a56}
