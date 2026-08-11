@@ -26,6 +26,7 @@ const androidControlIcons = [
 ];
 document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
 document.querySelectorAll('.android-call-controls>b').forEach(button => { button.innerHTML = '<svg class="icon hangup-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>'; });
+document.querySelectorAll('.android-call-status span:last-child').forEach(status => { status.className = 'android-status-icons'; status.setAttribute('role', 'img'); status.setAttribute('aria-label', 'Mobile signal, Wi-Fi, battery'); status.innerHTML = '<svg class="status-icon signal-icon" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 11h2V9H1v2Zm4 0h2V6H5v5Zm4 0h2V3H9v8Zm4 0h2V0h-2v11Z"/></svg><svg class="status-icon wifi-icon" viewBox="0 0 16 12" aria-hidden="true"><path d="M1.5 4.5a9 9 0 0 1 13 0M4 7a5.5 5.5 0 0 1 8 0M6.8 9.5a1.7 1.7 0 0 1 2.4 0"/><circle cx="8" cy="10.2" r=".8" fill="currentColor" stroke="none"/></svg><svg class="status-icon battery-icon" viewBox="0 0 18 10" aria-hidden="true"><rect x="1" y="1" width="14" height="8" rx="2"/><path d="M16 4h1v2h-1"/><path d="M3 3h8v4H3z" fill="currentColor" stroke="none"/></svg>'; });
 const voiceStory = document.querySelector('.story-grid > .story-card:first-child');
 if (voiceStory) {
   voiceStory.querySelector('.android-call')?.setAttribute('aria-label', 'Outbound Android phone call from the assistant to a BrightCare customer');
