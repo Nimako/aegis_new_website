@@ -43,7 +43,7 @@ if (voiceStory) {
 }
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
 const reviewPreview = document.querySelector('.story-grid > .story-card:last-child .story-ui-review');
-if (reviewPreview) reviewPreview.innerHTML = '<div class="review-row-focus" role="img" aria-label="Update beneficiary details, needs approval, Review"><span class="review-focus-index">01</span><div class="review-focus-copy"><small>ONE ACTION NEEDS YOUR REVIEW</small><b>Update beneficiary details</b><em>Prepared by Assistant assist · 2m ago</em></div><span class="review-focus-status">Policy check passed</span><strong>Review</strong></div>';
+if (reviewPreview) reviewPreview.innerHTML = '<div class="review-panel-head"><small>REVIEW QUEUE · 1 ACTION</small><strong>Review</strong></div><div class="review-row-focus" role="img" aria-label="Update beneficiary details, needs approval, Review"><span class="review-focus-index">01</span><div class="review-focus-copy"><small>ONE ACTION NEEDS YOUR REVIEW</small><b>Update beneficiary details</b><em>Prepared by Assistant assist · 2m ago</em></div><span class="review-focus-status">Policy check passed</span></div>';
 if (reviewPreview) reviewPreview.insertAdjacentHTML('afterend', '<div class="review-laptop-deck" aria-hidden="true"><span class="review-trackpad"></span></div>');
 
 if (!reduceMotion && 'IntersectionObserver' in window) {

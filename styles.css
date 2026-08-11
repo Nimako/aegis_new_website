@@ -293,11 +293,24 @@ html[data-theme="light"] .journey-ui,html[data-theme="light"] .journey-thread,ht
 @media(max-width:680px){.story-grid > .story-card:first-child .ios-call{left:39%;width:min(47%,182px)}.story-grid > .story-card:first-child .ios-call-screen{min-height:350px}.story-grid > .story-card:first-child .ios-call .android-call-profile{padding-top:35px}}
 
 /* The team-review story now presents one perfectly aligned action, without a tiny laptop screenshot. */
-.story-grid > .story-card:last-child .story-ui-review{left:4%;right:4%;top:38%;bottom:auto;width:auto!important;height:30%;padding:0;border:0;border-radius:0;background:transparent;overflow:visible;box-shadow:none}
+.story-grid > .story-card:last-child .story-ui-review{left:4%;right:auto;top:38%;bottom:auto;width:92%!important;height:30%;padding:0;border:0;border-radius:0;background:transparent;overflow:visible;box-shadow:none}
 .story-grid > .story-card:last-child .story-ui-review:before,.story-grid > .story-card:last-child .story-ui-review:after{display:none}
 .story-grid > .story-card:last-child .review-row-focus{left:0!important;right:0!important;top:0!important;height:100%!important}
 .review-laptop-deck{display:none!important}
-@media(max-width:680px){.story-grid > .story-card:last-child .story-ui-review{left:3%;right:3%;top:36%;height:34%}.story-grid > .story-card:last-child .review-row-focus{left:0!important;right:0!important;top:0!important;height:100%!important}}
+@media(max-width:680px){.story-grid > .story-card:last-child .story-ui-review{left:3%;right:auto;width:94%!important;top:36%;height:34%}.story-grid > .story-card:last-child .review-row-focus{left:0!important;right:0!important;top:0!important;height:100%!important}}
+
+/* Large review surface inspired by the supplied reference: action first, row centered. */
+.story-grid > .story-card:last-child .story-ui-review{left:4%;right:auto;top:18%;width:92%!important;height:64%;display:flex;align-items:center;justify-content:center;padding:0;border:2px solid #17613f;border-radius:16px;background:#fbfffc;overflow:visible;box-shadow:0 0 0 4px rgba(185,239,201,.25)}
+.story-grid > .story-card:last-child .story-ui-review:before,.story-grid > .story-card:last-child .story-ui-review:after{display:none}
+.review-panel-head{position:absolute;z-index:5;left:18px;right:18px;top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.review-panel-head small{position:static!important;color:#527063!important;font:6px var(--mono)!important;letter-spacing:.1em;white-space:nowrap}
+.review-panel-head strong{position:static!important;display:inline-flex;align-items:center;justify-content:center;min-width:54px;padding:9px 12px;border:0;border-radius:7px;background:#17613f;color:#fff;font-size:9px;line-height:1}
+.story-grid > .story-card:last-child .review-row-focus{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:90%!important;height:34%!important;margin-top:18px;grid-template-columns:24px minmax(0,1fr) auto;gap:9px;padding:10px 11px;border:1.5px solid #17613f;border-radius:10px;background:#f7fff9;box-shadow:0 0 0 3px rgba(185,239,201,.32)}
+.review-row-focus strong{display:none!important}
+.review-row-focus .review-focus-copy b{font-size:11px}
+.review-row-focus .review-focus-copy em{font-size:7px}
+.review-row-focus .review-focus-status{padding:6px 8px;font-size:6px}
+@media(max-width:680px){.story-grid > .story-card:last-child .story-ui-review{left:3%;top:16%;width:94%!important;height:68%}.review-panel-head{left:13px;right:13px;top:12px}.review-panel-head strong{min-width:45px;padding:8px 9px;font-size:8px}.story-grid > .story-card:last-child .review-row-focus{width:88%!important;height:38%!important;grid-template-columns:18px minmax(0,1fr);gap:6px;padding:8px}.review-row-focus .review-focus-index{width:18px;height:18px}.review-row-focus .review-focus-copy b{font-size:8px}.review-row-focus .review-focus-copy em{font-size:5px}.review-row-focus .review-focus-status{grid-column:2;justify-self:start;padding:4px 6px;font-size:5px}}
 
 /* Editorial zoom for the single action the team needs to see first. */
 .story-ui-review>div.review-row-focus{top:19%!important;height:48%!important;grid-template-columns:22px minmax(0,1fr) auto auto;gap:8px;padding:8px 9px;border-radius:8px;background:#fbfffc;box-shadow:0 0 0 3px rgba(185,239,201,.34)}
