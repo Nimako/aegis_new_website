@@ -127,6 +127,13 @@ function decorateAvatars(root = productView) {
     avatar.setAttribute('aria-label', ['Maya', 'Jon', 'Emma'][index] || 'Customer');
   });
   root?.querySelectorAll('.queue-item>span:first-child').forEach(avatar => avatar.classList.add('task-avatar'));
+  const journeyIcons = [
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M9 7h6M10 17h4"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="m7 11 10-4M7 13l10 4"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m8 12 2.5 2.5L16 9"/></svg>'
+  ];
+  root?.querySelectorAll('.journey-step>span').forEach((step, index) => { step.classList.add('journey-step-icon'); step.innerHTML = journeyIcons[index] || journeyIcons[0]; });
   const journeyAvatar = root?.querySelector('.journey-thread-top .avatar');
   if (journeyAvatar) { journeyAvatar.classList.add('avatar-photo', 'avatar-maya'); journeyAvatar.textContent = ''; journeyAvatar.setAttribute('aria-label', 'Maya'); }
 }
@@ -150,7 +157,7 @@ function renderView(name) {
     .replaceAll('BRAND_CONFLUENCE', brandIcon('confluence'));
   decorateAvatars();
 }
-renderView('approvals');
+renderView('journey');
 document.querySelectorAll('.product-tab').forEach(tab => tab.addEventListener('click', () => {
   document.querySelectorAll('.product-tab').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); item.tabIndex = -1; });
   tab.classList.add('active'); tab.setAttribute('aria-selected', 'true'); tab.tabIndex = 0; renderView(tab.dataset.view);
