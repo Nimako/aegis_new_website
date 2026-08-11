@@ -26,6 +26,8 @@ const androidControlIcons = [
 ];
 document.querySelectorAll('.android-call-controls span i').forEach((icon, index) => { icon.innerHTML = androidControlIcons[index]; });
 document.querySelector('.story-grid > .story-card:first-child .story-image img')?.setAttribute('alt', 'A dental clinic customer taking a phone call in the waiting area');
+const reviewPreview = document.querySelector('.story-grid > .story-card:last-child .story-ui-review');
+if (reviewPreview) reviewPreview.insertAdjacentHTML('beforeend', '<div class="review-screen-details"><div class="review-detail-heading"><span>PROPOSED CHANGE</span><b>Beneficiary details</b><i>Needs review</i></div><div class="review-detail-grid"><span>Before</span><span>After</span><b>Alex Morgan</b><b>Alex J. Morgan</b></div><div class="review-policy"><span>✓</span><div><b>Policy check passed</b><small>One approval required before saving</small></div></div><div class="review-footer"><span>Prepared by Assistant assist · 2m ago</span><button type="button">Open review</button></div></div>');
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll('.section-label,.intro-grid,.governance-cards,.outcomes-heading,.outcome-grid,.real-life-heading,.story-grid,.autonomy-copy,.mode-card,.product-heading,.product-demo,.onboarding-copy,.onboarding-preview,.connectors-heading,.connector-list,.industry-heading,.industry-links,.cta h2,.cta .hero-actions');
