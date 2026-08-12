@@ -332,13 +332,6 @@ Object.entries(plainCopy).forEach(([selector, copy]) => {
   if (element) element.innerHTML = copy;
 });
 
-// The landing experience begins with the main "Start here" hero, followed by
-// the deployment strip that explains where Aegis works.
-const pageMain = document.querySelector('main');
-const heroSection = pageMain?.querySelector('.hero');
-const deploymentSection = pageMain?.querySelector('.deployment-strip');
-if (pageMain && heroSection && deploymentSection) pageMain.insertBefore(heroSection, deploymentSection);
-
 ['Conversations', 'Review', 'Journey', 'History', 'Channels', 'Rules', 'Knowledge'].forEach((label, index) => {
   const tab = document.querySelectorAll('.product-tab')[index];
   if (tab) tab.textContent = label;
