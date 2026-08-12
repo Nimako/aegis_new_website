@@ -6,6 +6,7 @@ function landingMarkup() {
   const source = fs.readFileSync(path.join(process.cwd(), "index.html"), "utf8");
   const body = source.match(/<body[^>]*>([\s\S]*?)<\/body>/i)?.[1] ?? "";
   return body
+    .replace(/<header class="header"[\s\S]*?<\/header>/i, "")
     .replace(/<script[^>]*src="script\.js[^>]*><\/script>/i, "")
     .replace(/(?:src|href)="assets\//g, 'src="/assets/')
     .replace(/href="styles\.css[^\"]*"/g, 'href="/legacy-styles.css"')
@@ -25,6 +26,6 @@ export function LegacyLanding() {
   return <>
     <link rel="stylesheet" href="/legacy-styles.css" />
     <div dangerouslySetInnerHTML={{ __html: landingMarkup() }} />
-    <Script src="/legacy-script.js" strategy="afterInteractive" />
+    <Script src="/legacy-script.js?v=20260812-hero-first" strategy="afterInteractive" />
   </>;
 }

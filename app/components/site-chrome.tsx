@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { SiteHeader, SiteFooter } from "./site-shell";
+import { SiteFooter } from "./site-shell";
 
-export function SiteChrome() {
+export function SiteChromeFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (pathname === "/") return null;
-  return <><SiteHeader /><SiteFooter /></>;
+  if (pathname === "/") return <>{children}</>;
+  return <>{children}<SiteFooter /></>;
 }

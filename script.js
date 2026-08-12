@@ -9,6 +9,7 @@ if (storedTheme === 'dark' || storedTheme === 'light') document.documentElement.
 const setTheme = theme => {
   document.documentElement.dataset.theme = theme;
   window.localStorage.setItem('aegis-theme', theme);
+  window.dispatchEvent(new CustomEvent('aegis-theme-change', { detail: theme }));
   if (!themeToggle) return;
   const dark = theme === 'dark';
   themeToggle.setAttribute('aria-pressed', String(dark));
@@ -240,13 +241,13 @@ document.addEventListener('keydown', event => {
 });
 
 const menuToggle = document.querySelector('.menu-toggle');
-menuToggle.addEventListener('click', () => {
+menuToggle?.addEventListener('click', () => {
   const open = header.classList.toggle('mobile-open');
   menuToggle.setAttribute('aria-expanded', String(open));
   menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   if (!open) closeMenus();
 });
-document.querySelectorAll('.nav a,.header-right a,.popover a').forEach(link => link.addEventListener('click', () => { header.classList.remove('mobile-open'); menuToggle.setAttribute('aria-expanded', 'false'); closeMenus(); }));
+document.querySelectorAll('.nav a,.header-right a,.popover a').forEach(link => link.addEventListener('click', () => { header?.classList.remove('mobile-open'); menuToggle?.setAttribute('aria-expanded', 'false'); closeMenus(); }));
 
 const onboardingPreview = document.querySelector('.onboarding-preview');
 const skipOnboarding = document.querySelector('[data-skip-onboarding]');

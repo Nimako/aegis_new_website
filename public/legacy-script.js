@@ -1,5 +1,6 @@
 // Aegis interactions: navigation popovers, autonomy demo, and product showcase.
 const header = document.querySelector('.header');
+const sharedReactHeader = header?.dataset.reactShell === 'true';
 const themeToggle = document.querySelector('.theme-toggle');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.documentElement.classList.add(reduceMotion ? 'reduce-motion' : 'motion-ready');
@@ -9,6 +10,7 @@ if (storedTheme === 'dark' || storedTheme === 'light') document.documentElement.
 const setTheme = theme => {
   document.documentElement.dataset.theme = theme;
   window.localStorage.setItem('aegis-theme', theme);
+  window.dispatchEvent(new CustomEvent('aegis-theme-change', { detail: theme }));
   if (!themeToggle) return;
   const dark = theme === 'dark';
   themeToggle.setAttribute('aria-pressed', String(dark));
@@ -16,8 +18,11 @@ const setTheme = theme => {
   themeToggle.querySelector('span').textContent = dark ? '☾' : '☼';
   themeToggle.querySelector('b').textContent = dark ? 'Dark' : 'Light';
 };
-setTheme(document.documentElement.dataset.theme || 'light');
-themeToggle?.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+// The shared React header owns theme state on the landing page too. Calling
+// setTheme here would overwrite a persisted dark theme with the default light
+// theme after React has already restored it.
+if (!sharedReactHeader) setTheme(document.documentElement.dataset.theme || 'light');
+if (!sharedReactHeader) themeToggle?.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
 // Keep the Android call controls crisp and recognizable at every card size.
 const androidControlIcons = [
@@ -62,8 +67,8 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   revealTargets.forEach(element => revealObserver.observe(element));
 }
-const menuButtons = document.querySelectorAll('[data-menu]');
-const popovers = document.querySelectorAll('.popover');
+const menuButtons = sharedReactHeader ? [] : document.querySelectorAll('[data-menu]');
+const popovers = sharedReactHeader ? [] : document.querySelectorAll('.popover');
 const cursorGlow = document.querySelector('.cursor-glow');
 
 // Adds a restrained depth shift to key product surfaces without affecting layout.
@@ -240,13 +245,15 @@ document.addEventListener('keydown', event => {
 });
 
 const menuToggle = document.querySelector('.menu-toggle');
-menuToggle.addEventListener('click', () => {
-  const open = header.classList.toggle('mobile-open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-  if (!open) closeMenus();
-});
-document.querySelectorAll('.nav a,.header-right a,.popover a').forEach(link => link.addEventListener('click', () => { header.classList.remove('mobile-open'); menuToggle.setAttribute('aria-expanded', 'false'); closeMenus(); }));
+if (!sharedReactHeader) {
+  menuToggle?.addEventListener('click', () => {
+    const open = header.classList.toggle('mobile-open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    if (!open) closeMenus();
+  });
+  document.querySelectorAll('.nav a,.header-right a,.popover a').forEach(link => link.addEventListener('click', () => { header?.classList.remove('mobile-open'); menuToggle?.setAttribute('aria-expanded', 'false'); closeMenus(); }));
+}
 
 const onboardingPreview = document.querySelector('.onboarding-preview');
 const skipOnboarding = document.querySelector('[data-skip-onboarding]');
@@ -325,17 +332,12 @@ Object.entries(plainCopy).forEach(([selector, copy]) => {
   if (element) element.innerHTML = copy;
 });
 
-// Keep the visitor's story in order: understand, trust, explore, then convert.
+// The landing experience begins with the main "Start here" hero, followed by
+// the deployment strip that explains where Aegis works.
 const pageMain = document.querySelector('main');
 const heroSection = pageMain?.querySelector('.hero');
 const deploymentSection = pageMain?.querySelector('.deployment-strip');
-const trustSection = pageMain?.querySelector('.logos');
-const storySection = pageMain?.querySelector('.real-life');
-const governanceSection = pageMain?.querySelector('.intro');
-const ctaSection = pageMain?.querySelector('.cta');
 if (pageMain && heroSection && deploymentSection) pageMain.insertBefore(heroSection, deploymentSection);
-if (heroSection && trustSection) heroSection.after(trustSection);
-if (pageMain && storySection && governanceSection) pageMain.insertBefore(storySection, governanceSection);
 
 ['Conversations', 'Review', 'Journey', 'History', 'Channels', 'Rules', 'Knowledge'].forEach((label, index) => {
   const tab = document.querySelectorAll('.product-tab')[index];
@@ -346,6 +348,7 @@ document.querySelectorAll('.workspace-link span').forEach(label => {
   if (label.textContent.trim() === 'Assistant assist') label.textContent = 'Aegis assist';
 });
 
+if (!sharedReactHeader) {
 const simpleMenuCopy = {
   '#industries-menu': [
     ['Banking & Fintech', 'Handle sensitive work'], ['Telecom', 'Help more people'],
@@ -378,6 +381,7 @@ if (resourcesMenu) {
   resourcesMenu.className = 'popover resources-mega';
   resourcesMenu.innerHTML = `<a class="resource-feature" href="#governance"><span class="resource-feature-top"><span class="menu-feature-icon"><svg class="icon"><use href="#i-shield"/></svg></span><span class="resource-tag">Trust</span></span><b>Stay in control</b><em>Clear answers, helpful actions, and a record your team can follow.</em><span class="resource-feature-link">Explore governance <svg class="icon"><use href="#i-arrow"/></svg></span></a><div class="resource-menu-list"><div class="menu-panel-heading"><div><span class="eyebrow">Explore</span><p>Useful places to learn, connect, and get started.</p></div></div><a href="#contact"><span class="menu-item-icon"><svg class="icon"><use href="#i-chat"/></svg></span><span><b>Contact us</b><em>Talk to our team about your use case.</em></span></a><a href="#contact"><span class="menu-item-icon"><svg class="icon"><use href="#i-channel"/></svg></span><span><b>Help Center</b><em>Guides and simple answers.</em></span></a><a href="#connectors"><span class="menu-item-icon"><svg class="icon"><use href="#i-audit"/></svg></span><span><b>Your trusted sources</b><em>Bring the tools your team already uses.</em></span></a><div class="resource-bottom"><span><b>Ready to see it in action?</b><em>Start with a guided walkthrough.</em></span><a href="#contact">Get started <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>`;
   navPanelLinks(resourcesMenu);
+}
 }
 
 // A small, multi-screen first-run flow for internal teams.
