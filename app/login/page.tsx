@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { PageHero } from "../components/site-shell";
+export default function LoginPage(){return <main><PageHero eyebrow="Workspace access" title={<>Your workspace.<br /><em>When you’re ready.</em></>}><p>Authentication is not connected in this preview. Your future workspace will be the home for conversations, assistants, approvals, and policy.</p></PageHero><section className="shell page-content"><div className="card" style={{maxWidth:520}}><div className="notice">Login is coming soon. Nothing is submitted or stored from this screen.</div><div className="actions"><Link className="button" href="/get-started">Start onboarding ↗</Link><Link className="button ghost" href="/">Back home</Link></div></div></section></main>}
