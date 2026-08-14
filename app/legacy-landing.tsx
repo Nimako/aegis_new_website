@@ -53,6 +53,7 @@ function landingMarkup() {
 export function LegacyLanding() {
   return <>
     <link rel="stylesheet" href="/legacy-styles.css" />
+    <link rel="stylesheet" href="/design-tokens.css" />
     <div dangerouslySetInnerHTML={{ __html: landingMarkup() }} />
     <Script src="/legacy-script.js?v=20260812-index-order" strategy="afterInteractive" />
   </>;

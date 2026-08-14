@@ -1,0 +1,16 @@
+import Link from "next/link";
+import { CTA, PageHero } from "../components/site-shell";
+import { Card, Icon, SectionHeading } from "../components/ui";
+
+const channels = [
+  ["lucide:message-circle", "Website chat", "Turn visits into useful conversations. Answer questions, qualify intent, route requests, and keep a complete handoff when a person needs to step in.", "Acquisition · support · self-service"],
+  ["simple-icons:whatsapp", "WhatsApp", "Meet customers in the channel they already trust. Guide loan applications, service requests, reminders, and updates without making access feel like paperwork.", "Financial access · applications · updates"],
+  ["lucide:phone-call", "Voice", "Handle inbound support, verification, reminders, and guided assistance with the right context before, during, and after the call.", "Support · verification · follow-up"],
+  ["lucide:message-square", "SMS", "Send low-friction notifications, alerts, follow-ups, and status updates that keep important work moving when bandwidth is limited.", "Alerts · reminders · status"],
+  ["lucide:braces", "API / SDK", "Put governed agents inside your product or internal systems. Trigger workflows from the events your business already understands.", "Embedded workflows · events · integrations"],
+  ["lucide:book-open-check", "Knowledge connectors", "Ground every answer and action in approved policies, manuals, and operational sources from the tools your team already uses.", "Policy · knowledge · evidence"],
+];
+
+export default function ChannelsPage() {
+  return <main><PageHero eyebrow="Deploy where the work happens" title={<>Every channel.<br /><em>One shared context.</em></>}><p>Give customers and teams a consistent way to start work—then carry the same context, policy, and history through to the outcome.</p></PageHero><section className="shell page-content"><SectionHeading eyebrow="Choose the front door" title={<>Meet people<br /><em>where they are.</em></>} copy="Aegis adapts to the channel without fragmenting the workflow behind it." /><div className="grid-3">{channels.map(([icon,title,copy,meta])=><Card key={title}><span className="icon-box"><Icon icon={icon} /></span><h3>{title}</h3><p>{copy}</p><span className="channel-meta">{meta}</span></Card>)}</div><div className="section channel-comparison"><SectionHeading eyebrow="Same workflow, different entry point" title={<>The channel changes.<br /><em>The controls do not.</em></>} /><div className="comparison-table" role="table" aria-label="Channel capability comparison"><div className="comparison-row comparison-head" role="row"><span>Channel</span><span>Best for</span><span>Human handoff</span><span>Governance</span></div>{channels.map(([,, ,meta], index)=><div className="comparison-row" role="row" key={channels[index][1]}><b>{channels[index][1]}</b><span>{meta.split(" · ")[0]}</span><span>{index === 4 ? "Event-driven" : index === 5 ? "Source-aware" : "When needed"}</span><span>Policy + history</span></div>)}</div></div><div className="channel-callout"><div><span className="eyebrow">Start simple</span><h2>Connect one channel.<br /><em>Expand when ready.</em></h2></div><Link className="button" href="/get-started">Choose a starting point ↗</Link></div></section><CTA title={<>More ways in.<br /><em>More work done.</em></>} /></main>;
+}

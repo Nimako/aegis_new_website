@@ -1,0 +1,66 @@
+/*
+ * Aegis design tokens
+ *
+ * Change the semantic variables below to retheme the product. The legacy
+ * aliases at the bottom keep existing page styles stable while the system is
+ * gradually migrated to the semantic names.
+ */
+:root {
+  --color-bg: #080b0d;
+  --color-surface: #101417;
+  --color-surface-raised: #151a1d;
+  --color-surface-hover: #1b2125;
+  --color-border: rgba(214, 233, 222, 0.12);
+  --color-border-strong: rgba(214, 233, 222, 0.22);
+  --color-text: #f4f7f4;
+  --color-text-soft: #aeb8b1;
+  --color-text-muted: #6e7a74;
+  --color-brand: #b6f4c6;
+  --color-brand-strong: #82d69c;
+  --color-accent: #efbd64;
+  --color-info: #55a0ff;
+  --color-success: #30bf7b;
+  --color-cta-text: #07110d;
+  --color-cta-yellow-text: #241707;
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+  --surface-2: var(--color-surface-raised);
+  --surface-3: var(--color-surface-hover);
+  --line: var(--color-border);
+  --line-strong: var(--color-border-strong);
+  --line-2: var(--color-border-strong);
+  --white: var(--color-text);
+  --soft: var(--color-text-soft);
+  --muted: var(--color-text-muted);
+  --mint: var(--color-brand);
+  --mint-dark: var(--color-brand-strong);
+  --yellow: var(--color-accent);
+  --blue: var(--color-info);
+  --green: var(--color-success);
+  --sans: var(--font-sans);
+  --mono: var(--font-mono);
+  --cta-mint: var(--color-brand);
+  --cta-mint-ink: var(--color-cta-text);
+  --cta-yellow: var(--color-accent);
+  --cta-yellow-ink: var(--color-cta-yellow-text);
+}
+
+html[data-theme='light'] {
+  --color-bg: #f5f8f4;
+  --color-surface: #ffffff;
+  --color-surface-raised: #eef4ef;
+  --color-surface-hover: #e3ece5;
+  --color-border: rgba(20, 53, 37, 0.13);
+  --color-border-strong: rgba(20, 53, 37, 0.22);
+  --color-text: #13211a;
+  --color-text-soft: #4f6257;
+  --color-text-muted: #718078;
+  --color-brand: #0f6b43;
+  --color-brand-strong: #16794b;
+  --color-accent: #d69825;
+  --color-success: #1e9b62;
+  --color-cta-text: #062116;
+  --color-cta-yellow-text: #251906;
+}
